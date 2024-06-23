@@ -12,8 +12,10 @@ try{
 
     conn = await client.connect();
     console.log("succesful!")
+}catch (e) {
+    console.log(e);
 }
 
-let db = conn.db('');
+let db = conn.db('capstone');
 
 export default db;
