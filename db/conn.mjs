@@ -13,3 +13,7 @@ try{
     conn = await client.connect();
     console.log("succesful!")
 }
+
+let db = conn.db('');
+
+export default db;
