@@ -1,21 +1,12 @@
-import { MongoClient } from 'mongodb';
-import dotenv from 'dotenv';
-dotenv.config();
+require ('dotenv').config();
+const mongoose = require('mongoose');
 
-const connectionString = process.env.ATLAS_URI || '';
+mongoose.connect(process.env.MONGO_URI);
 
-const client = new MongoClient(connectionString);
+mongoose.connection
 
-let conn;
+.on('open',() => console.log('Connected to mongoose'))
+.on('close', () => console.log('Disconnected from Mongoose'))
+.on('error', (error) => console.log(error));
 
-try{
-
-    conn = await client.connect();
-    console.log("succesful!")
-}catch (e) {
-    console.log(e);
-}
-
-let db = conn.db('capstone');
-
-export default db;
+module.exports = mongoose;
