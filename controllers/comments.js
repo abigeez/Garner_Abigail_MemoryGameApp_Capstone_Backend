@@ -18,7 +18,7 @@ async function create(req,res) {
             res.status(201).send(createdComment);
         }
     } catch (err) {
-        res.status(400).send(err)
+        res.status(400).send(err);
     }
 }
 
@@ -27,7 +27,7 @@ async function update (req,res) {
     try {
         const updateComment = await Comments.findByIdAndUpdate(req.params.id);
         if (updateComment) {
-            res.status(201).send(deletedComment);
+            res.status(201).send(updateComment);
         }
     } catch (err) {
         res.status(400).send(err);
