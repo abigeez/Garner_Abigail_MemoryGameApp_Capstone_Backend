@@ -22,23 +22,17 @@ async function create(req,res) {
     }
 }
 
-
-async function update(req, res) {
+async function update (req,res) {
     try {
-      const updatedComment = await Comment.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        {
-          new: true,
-        }
-      );
-  
-      res.status(200).json(updatedComment);
-    } catch (err) {
-      res.status(400).send(err);
-    }
-  }
+        const updateComment = await Comments.findByIdAndUpdate(req.params.id, req.body)
 
+        if (updateComment) {
+            res.status(201).send(updateComment);
+        }
+    } catch (err) {
+        res.status(400).send(err);
+    }
+}
 
 
 
