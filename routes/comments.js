@@ -13,7 +13,7 @@ router.get('/',index);
 router.post('/', create);
 
 //update comments
-router.patch('/:id', update);
+router.put('/:id', update);
 // delete comments
 
 router.delete('/:id', destroy);
