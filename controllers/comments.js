@@ -38,7 +38,7 @@ async function update (req,res) {
 
 async function destroy(req,res) {
     try {
-        const deletedComment = await Comments.findByIdandDelete(req.params.id);
+        const deletedComment = await Comments.findByIdandDelete(req.params.id,req.body)
         if (deletedComment) {
             res.status(201).send(deletedComment);
         }
